@@ -1,8 +1,18 @@
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <%- include("./partials/head"); -%>
 </head>
+
 <body>
     <div class="container">
-        <h1>Hello Alex</h1>
+        <div id="main_page">
+            <h1>Hello</h1>
+            <div id="links">
+                <p>Click <a href="/login">here</a> to go to the login page.</p>
+                <p>Click <a href="/register">here</a> to go to the register page.</p>
+            </div>
+        </div>
     </div>
+    <footer>
+            <%- include("./partials/footer"); -%>
+    </footer>
 </body>

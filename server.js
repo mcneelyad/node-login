@@ -7,8 +7,9 @@ const bcyrpt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
-
+const path = require('path')
 const initialize = require('./passport-config')
+
 initialize(
     passport, 
     email => users.find(user => user.email === email),
@@ -20,6 +21,9 @@ const app = express()
 const users = []
 
 app.set('view-engine', 'ejs')
+app.set('views/pages', path.join(__dirname, 'views/pages'));
+
+app.use(express.static(__dirname + '/views'));
 app.use(express.urlencoded({ extended: false }))
 app.use(flash())
 app.use(session({
@@ -64,4 +68,6 @@ app.post('/register' , async (req,res) => {
     }
 })
 
-app.listen(3000)
+app.listen(3000, () => {
+    console.log('Server is running on port 3000')
+});
