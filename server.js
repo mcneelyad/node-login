@@ -43,8 +43,12 @@ app.get('/login', (req,res) => {
     res.render('login.ejs')
 })
 
+app.get('/secret', (req,res) => {
+    res.render('secret.ejs')
+});
+
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/secret',
     failureRedirect: '/login',
     failureFlash: true
 }))
